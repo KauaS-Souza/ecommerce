@@ -1,7 +1,7 @@
 package com.biolab.ecommerce.controllers;
 
-import com.biolab.ecommerce.DTOs.UsuarioDTO;
-import com.biolab.ecommerce.services.Usuarioservice;
+import com.biolab.ecommerce.DTOs.PagamentoDTO;
+import com.biolab.ecommerce.services.PagamentoService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -10,20 +10,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("usuario")
-public class UsuarioController {
+@RequestMapping("pagamento")
+public class PagamentoController {
 
-    private final Usuarioservice service;
+    private final PagamentoService pagamentoService;
 
-    public UsuarioController(Usuarioservice service) {
-        this.service = service;
+    public PagamentoController(PagamentoService pagamentoService) {
+        this.pagamentoService = pagamentoService;
     }
 
     @PostMapping
-    public ResponseEntity<?> saveUser(@RequestBody UsuarioDTO dto){
-
-//        return ResponseEntity.ok(service.criar(dto));
+    public ResponseEntity<?> savePayment(@RequestBody PagamentoDTO dto){
         return ResponseEntity.status(HttpStatus.CREATED)
-                .body(service.criar(dto));
+                .body(pagamentoService.criarPagamento(dto));
     }
+
 }
