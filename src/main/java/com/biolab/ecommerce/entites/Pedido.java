@@ -1,5 +1,6 @@
 package com.biolab.ecommerce.entites;
 
+import com.biolab.ecommerce.entites.enums.StatusPedido;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;

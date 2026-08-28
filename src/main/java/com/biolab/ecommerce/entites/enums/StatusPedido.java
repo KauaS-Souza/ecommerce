@@ -1,4 +1,4 @@
-package com.biolab.ecommerce.entites;
+package com.biolab.ecommerce.entites.enums;
 
 public enum StatusPedido {
     AGUARDADO_PAGAMENTO,

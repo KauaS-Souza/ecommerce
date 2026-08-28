@@ -1,7 +1,6 @@
-package com.biolab.ecommerce.entites;
+package com.biolab.ecommerce.DTOs;
 
 import com.biolab.ecommerce.entites.enums.Role;
-import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
@@ -9,29 +8,31 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity
-// Substitui os getters e setters;
-@Data
-// Substitui o construtor com todos os argumentos;
-@AllArgsConstructor
-// Substitui o construtor vazio;
-@NoArgsConstructor
-public class Usuario {
 
-    @Id
-    @GeneratedValue( strategy = GenerationType.IDENTITY)
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class UsuarioDTO {
+
     private long id;
     @NotBlank
     private String nome;
-    @NotBlank @Email
-    @Column(length = 150, unique = true)
+    @NotBlank
+    @Email
+    @Size(max = 150)
     private String email;
-    @Column(length = 20)
+    @Size(max = 20, message = "O maximo são 20 caracteres!")
     private String telefone;
-    @NotBlank @Size(min = 6)
-    @Column(length = 150)
+    @NotBlank
+    @Size(min = 6, max = 20)
     private String senha;
-    @Enumerated(EnumType.STRING)
     private Role roles;
 
+    public UsuarioDTO(String nome, String email, String telefone, String senha, Role roles) {
+        this.nome = nome;
+        this.email = email;
+        this.telefone = telefone;
+        this.senha = senha;
+        this.roles = roles;
+    }
 }
