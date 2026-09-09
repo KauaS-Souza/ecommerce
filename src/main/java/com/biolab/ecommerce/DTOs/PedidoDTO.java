@@ -1,6 +1,5 @@
 package com.biolab.ecommerce.DTOs;
 
-import com.biolab.ecommerce.entites.Usuario;
 import com.biolab.ecommerce.entites.enums.StatusPedido;
 import lombok.AllArgsConstructor;
 import lombok.Data;
