@@ -7,7 +7,6 @@ import com.biolab.ecommerce.repositories.CategoriaRepository;
 import com.biolab.ecommerce.repositories.ProdutoRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.Set;
 
 @Service
 public class ProdutoService {
